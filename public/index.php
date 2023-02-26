@@ -35,4 +35,10 @@ $request = Request::create()
     ->set($_GET)
     ->set($_POST);
 
-JsonResponse::create(call_user_func(array($action[0]->controller, $action[0]->function), $request));
+try {
+    $payload = call_user_func(array($action[0]->controller, $action[0]->function), $request);
+} catch (Throwable $e) {
+    JsonResponse::create([], 404);
+} finally {
+    JsonResponse::create($payload);
+}
