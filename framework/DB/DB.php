@@ -117,7 +117,7 @@ final class DB
      */
     public function __destruct()
     {
-        $this->disconnect();
+        # $this->disconnect();
     }
 
     /**
@@ -127,8 +127,6 @@ final class DB
      */
     public function disconnect(): void
     {
-        $this->log(self::QUERY_KILL_CONNECTION, self::REGULAR_REQUEST);
-
         $this->pdo->query(
             'SELECT pg_terminate_backend(PID) FROM pg_stat_activity WHERE PID <> pg_backend_pid()'
         );
