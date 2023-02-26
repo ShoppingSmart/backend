@@ -10,9 +10,4 @@ class Category extends Model
      * @var string
      */
     protected string $table = 'categories';
-
-    public function __construct()
-    {
-        $this->boot();
-    }
 }

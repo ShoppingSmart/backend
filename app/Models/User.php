@@ -10,9 +10,4 @@ class User extends Model
      * @var string
      */
     protected string $table = 'users';
-
-    public function __construct()
-    {
-        $this->boot();
-    }
 }

@@ -10,9 +10,4 @@ class Product extends Model
      * @var string
      */
     protected string $table = 'products';
-
-    public function __construct()
-    {
-        $this->boot();
-    }
 }

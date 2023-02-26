@@ -10,9 +10,4 @@ class Order extends Model
      * @var string
      */
     protected string $table = 'orders';
-
-    public function __construct()
-    {
-        $this->boot();
-    }
 }
