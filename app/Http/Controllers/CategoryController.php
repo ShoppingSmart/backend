@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
-class CategoryController implements Controller
+use App\Http\Request;
+use App\Models\Category;
+use Framework\App\Http\Controllers\Index;
+
+class CategoryController implements Index
 {
-    //
+    public function index(Request $request): array
+    {
+        return Category::newModelInstance()->all();
+    }
 }
