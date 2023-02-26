@@ -22,7 +22,11 @@ function database_path(string $filename = ''): string
  */
 function root_path(string $filename = ''): string
 {
-    return dirname($_SERVER['DOCUMENT_ROOT']) . '/' . $filename;
+    if (php_sapi_name() === 'cli') {
+        return __DIR__ . '/' . $filename;
+    } else {
+        return dirname($_SERVER['DOCUMENT_ROOT']) . '/' . $filename;
+    }
 }
 
 /**
