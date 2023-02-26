@@ -6,7 +6,7 @@ class ConfigHelper
 {
     /**
      * Get an Instance.
-     * 
+     *
      * @param void
      */
     public static function create(): self
