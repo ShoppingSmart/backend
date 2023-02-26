@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use Framework\Contracts\Seeder;
-
-class DatabaseSeeder
+class SeederRunner
 {
     public static function run(): void
     {
