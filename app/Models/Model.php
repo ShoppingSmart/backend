@@ -41,6 +41,11 @@ class Model
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function newModelInstance(): Self
+    {
+        return new static();
+    }
+
     public function find(int $id)
     {
         $query = "SELECT * FROM $this->table WHERE id = :id";
