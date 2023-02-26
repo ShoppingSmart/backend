@@ -13,7 +13,7 @@ return [
         ],
         [
             'name' => 'image',
-            'definition' => 'VARCHAR ( 255 ) UNIQUE NOT NULL',
+            'definition' => 'VARCHAR ( 255 ) NOT NULL',
         ],
         [
             'name' => 'tax',
