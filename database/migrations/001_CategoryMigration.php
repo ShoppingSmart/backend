@@ -12,6 +12,10 @@ return [
             'definition' => 'VARCHAR ( 255 ) UNIQUE NOT NULL',
         ],
         [
+            'name' => 'image',
+            'definition' => 'VARCHAR ( 255 ) UNIQUE NOT NULL',
+        ],
+        [
             'name' => 'tax',
             'definition' => 'INT NOT NULL'
         ],
