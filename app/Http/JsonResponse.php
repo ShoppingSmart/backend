@@ -17,9 +17,11 @@ class JsonResponse
         $contentLength = strlen($json);
 
         http_response_code($statusCode);
+
         header('Content-Type: application/json');
-        header("Content-Length: {$contentLength}");
-        header("Access-Control-Allow-Origin: *");
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST');
+        header("Access-Control-Allow-Headers: X-Requested-With");
 
         echo $json;
 
