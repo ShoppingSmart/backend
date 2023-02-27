@@ -12,6 +12,14 @@ return [
             'definition' => 'VARCHAR ( 255 ) UNIQUE NOT NULL'
         ],
         [
+            'name' => 'image',
+            'definition' => 'VARCHAR ( 255 ) NOT NULL',
+        ],
+        [
+            'name' => 'price',
+            'definition' => 'INT NOT NULL',
+        ],
+        [
             'name' => 'category_id',
             'definition' => 'INT NOT NULL',
         ],
