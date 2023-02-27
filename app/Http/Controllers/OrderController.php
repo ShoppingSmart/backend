@@ -16,7 +16,13 @@ class OrderController extends Controller
      */
     public function index(Request $request): array
     {
-        return Order::newModelInstance()->all();
+        $orders = Order::newModelInstance()->all();
+
+        foreach ($orders as $key => $order) {
+            $orders[$key]['order_products'] = OrderProduct::newModelInstance()->where('order_id', $order['id']);
+        }
+
+        return $orders;
     }
 
     /**
