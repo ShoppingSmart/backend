@@ -19,6 +19,7 @@ class JsonResponse
         http_response_code($statusCode);
         header('Content-Type: application/json');
         header("Content-Length: {$contentLength}");
+        header("Access-Control-Allow-Origin: *");
 
         echo $json;
 
