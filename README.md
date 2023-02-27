@@ -78,6 +78,63 @@
     ];
 ```
 
+<h5 align="center">Instruções sobre como executar a aplicação</h5>
+
+##### Clonar os repositórios
+
+1. Abra o terminal e crie um diretóro chamado Workspace: `mkdir Workspace`
+2. Clone o repositório backend: `git clone https://github.com/ShoppingSmart/backend`
+2. Clone o repositório frontend: `git clone https://github.com/ShoppingSmart/frontend`
+
+##### Executando a aplicação Nuxt.js
+
+1. Abra o terminal e navegue até o diretório frontend: cd frontend
+2. Certifique-se de que todas as dependências estão instaladas: `npm install`
+3. Execute o servidor de desenvolvimento do Nuxt.js: `npm run dev`
+4. Acesse a aplicação Nuxt.js no seu navegador em http://localhost:3000
+
+
+
+##### Abrindo uma conexão com o PostgreSQL usando o terminal
+Abra o terminal e digite o seguinte comando para acessar o shell do PostgreSQL:
+
+```sql
+psql -U postgres
+```
+
+Agora você está no shell do PostgreSQL. Para criar um usuário e um banco de dados, use o seguinte comando SQL:
+
+```sql
+CREATE USER smartshopuser WITH PASSWORD 'pass@root';
+CREATE DATABASE smartshop;
+GRANT ALL PRIVILEGES ON DATABASE smartshop TO smartshopuser;
+ALTER ROLE smartshopuser WITH LOGIN;
+ALTER ROLE smartshopuser superuser;
+```
+
+Agora você pode fechar a conexão usando `\q` e acessar novamente usando o usuário criado anteriormente:
+
+```sql
+psql -U smartshopuser -d smartshop
+```
+
+##### Executando a aplicação PHP
+
+1. Abra uma nova janela do terminal e navegue até o diretório backend: `cd backend`
+2. Certifique-se de que todas as dependências estão instaladas: `composer install`
+3. Certifique-se de que o __PHP 8__ está instalado em seu sistema, assim como o __PostgreSQL__
+4. Copie o arquivo __.env.example__ para __.env__ e configure o banco de dados corretamente usando o usuário criado no passo anterior
+4. Execute os comandos para criação das tabelas e regitros no banco de dados: 
+
+```bash
+php cli migrate:fresh && php cli db:seed
+```
+
+4. Inicie o servidor PHP: `php -S 127.0.0.1:8888 -t public`
+5. Acesse a aplicação PHP no seu navegador em http://localhost:8888
+
+Lembre-se de que, para a aplicação PHP, é necessário ter um servidor web configurado para hospedar a aplicação em produção. Este exemplo é apenas para executar a aplicação em seu ambiente de desenvolvimento local.
+
 <h5 align="center">Noções básicas sobre a aplicação</h5>
 
 <h6 align="center">Product</h6>
