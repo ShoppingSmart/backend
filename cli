@@ -1,0 +1,61 @@
+<?php
+
+use Database\Seeders\SeederRunner;
+use Framework\DB\Query;
+
+require_once __DIR__ . '/helpers.php';
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+if (count($argv) === 1) {
+    die("No instructions..." . PHP_EOL);
+}
+
+$callable = function (array $argv): bool {
+    switch ($argv[1]) {
+        case 'db:seed':
+            SeederRunner::run();
+
+            return true;
+        case 'migrate:fresh':
+            runMigrations();
+
+            return true;
+    }
+};
+
+$callable($argv);
+
+function runMigrations()
+{
+    $dir = database_path(
+        sprintf("%s%s", 'migrations', DIRECTORY_SEPARATOR)
+    );
+
+    $appendDir = array_map(fn (string $filename) => $dir . $filename, scandir($dir));
+
+    $callable = fn (string $file) => !is_dir($dir . $file) && strpos($file, "Migration.php");
+
+    $instructions = array_map(fn (string $path) => require_once $path, array_filter($appendDir, $callable));
+
+    echo 'Running migrations...' . PHP_EOL;
+
+    Query::create()->refreshDatabase();
+
+    foreach ($instructions as $instruction) {
+        Query::create()->createTable($instruction);
+    }
+
+    echo 'Finished...' . PHP_EOL;
+}
