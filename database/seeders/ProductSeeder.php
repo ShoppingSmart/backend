@@ -155,7 +155,9 @@ class ProductSeeder implements Seeder
                 $instance2 = new Product();
                 $instance2->create([
                     'name' => $product,
-                    'category_id' => $id
+                    'category_id' => $id,
+                    'image' => self::DEFAULT,
+                    'price' => rand(1, 10000)
                 ]);
             }
         }
