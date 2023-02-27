@@ -90,6 +90,7 @@
 
 1. Abra o terminal e navegue até o diretório frontend: cd frontend
 2. Certifique-se de que todas as dependências estão instaladas: `npm install`
+3. Copie o arquivo `.env.example` para `.env` e certifique-se de que o valor de `APP_URL` é o mesmo iniciado para a aplicação PHP. Certifique-se desse valor ao executar o passo __4__ para a execução da aplicação PHP
 3. Execute o servidor de desenvolvimento do Nuxt.js: `npm run dev`
 4. Acesse a aplicação Nuxt.js no seu navegador em http://localhost:3000
 
