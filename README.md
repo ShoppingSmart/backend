@@ -94,8 +94,6 @@
 3. Execute o servidor de desenvolvimento do Nuxt.js: `npm run dev`
 4. Acesse a aplicação Nuxt.js no seu navegador em http://localhost:3000
 
-
-
 ##### Abrindo uma conexão com o PostgreSQL usando o terminal
 Abra o terminal e digite o seguinte comando para acessar o shell do PostgreSQL:
 
