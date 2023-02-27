@@ -55,6 +55,15 @@ class Model
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function where(string $field, string $value)
+    {
+        $query = "SELECT * FROM $this->table WHERE $field = :value";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(":value", $value, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function create(array $data = [])
     {
         $keys = array_keys($data);
