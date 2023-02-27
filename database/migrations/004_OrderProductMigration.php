@@ -8,6 +8,10 @@ return [
             'definition' => 'serial PRIMARY KEY',
         ],
         [
+            'name' => 'quantity',
+            'definition' => 'INT NOT NULL'
+        ],
+        [
             'name' => 'order_id',
             'definition' => 'INT NOT NULL'
         ],
