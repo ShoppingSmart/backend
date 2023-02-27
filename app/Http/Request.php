@@ -37,7 +37,7 @@ class Request
         return $this;
     }
 
-    public function data(): stdClass
+    public function all(): stdClass
     {
         return $this->data;
     }
