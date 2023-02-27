@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\Http\Method;
 use App\Http\JsonResponse;
 use App\Http\Request;
 use App\Http\Server;
@@ -38,7 +37,9 @@ $request = Request::create()
 try {
     $payload = call_user_func(array($action[0]->controller, $action[0]->function), $request);
 } catch (Throwable $e) {
-    JsonResponse::create([], 404);
+    JsonResponse::create([
+        'error' => $e->getMessage()
+    ], 422);
 } finally {
     JsonResponse::create($payload);
 }
