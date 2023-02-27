@@ -25,6 +25,10 @@ $router = new Router(
     require_once routes_path('api.php')
 );
 
+if ($_SERVER['REQUEST_URI'] === '/') {
+    die("Hello :)");
+}
+
 $callable = fn (Route $current) => $current->route === Server::pathInfo() && $current->method === Server::method();
 
 $action = array_values(array_filter($router->routes(), $callable));
